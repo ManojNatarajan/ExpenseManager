@@ -1,0 +1,140 @@
+<div class="container">
+    <div class="card bg-secondary text-white m-3 mt-5">
+      <h5 class="card-header text-center">
+        Expense Type
+      </h5>
+      <div class="card-body">
+        <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+            <div class="form-row row">
+                <div class="form-group col-6">
+                    <label>Expense Type Description</label>
+                    <input type="text" class="form-control" 
+                    name="Description" id="Description"
+                    [(ngModel)]="e.Description"
+                    required maxlength="50" />
+                    <div *ngIf="this.submitted && this.ctrl['Description'].errors" class="text-warning">
+                        <div *ngIf="ctrl['Description'].errors['required']">
+                            Expense Type Description is required
+                        </div>
+                        <div *ngIf="ctrl['Description'].errors['maxlength']">
+                            Expense Type Description cannot exceed 50 characters
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group col-6">
+                    <label>Default Due Amount</label>
+                    <input type="number" class="form-control" 
+                    name="DefaultDueAmount" id="DefaultDueAmount"
+                    [(ngModel)]="e.DefaultDueAmount"
+                    required />
+                    <div *ngIf="this.submitted && this.ctrl['DefaultDueAmount'].errors" class="text-warning">
+                      <div>
+                          Default Due Amount is required
+                      </div>
+                    </div>
+                  </div>
+              </div>
+
+          <div class="form-row row">
+            
+            <div class="form-group col-6">
+              <label>Default Due Date (Allowed 1 to 31)</label>
+              <input type="number" class="form-control" 
+              name="DefaultDueDateInMonth" id="DefaultDueDateInMonth"
+              [(ngModel)]="e.DefaultDueDateInMonth" 
+              required min="1" max="31" />
+
+              <div *ngIf="this.submitted && this.ctrl['DefaultDueDateInMonth'].errors" class="text-warning">
+                <div *ngIf="ctrl['DefaultDueDateInMonth'].errors['required']">
+                    Default Due Date is required
+                </div>
+                <div *ngIf="!ctrl['DefaultDueDateInMonth'].errors['required']">
+                    Due Date should be in range 1 to 31. 
+                </div>
+              </div>
+            </div>
+            <div class="form-group col-2 mt-4">
+                <input type="checkbox" id="IsRecurring" name="IsRecurring" class="form-check-input"
+                [(ngModel)]="e.IsRecurring" #IsRecurring="ngModel" (change)="onRecurringExpense()" />
+                <label for="isRecurring" class="form-check-label">Is Recurring Expense</label>
+            </div>   
+            <div class="form-group col-4 mt-4">
+                
+              <select class="form-control" id="dropdownRecurringInterval" name="dropdownRecurringInterval"
+              [(ngModel)]="selectedRecurringTypeID" 
+              [disabled]="recIntDisabled">
+                <option *ngFor="let t of recurringIntervalTypes" [value]="t.Id">{{t.Description}}</option>
+              </select>
+              <ng-container>
+                <div *ngIf="this.submitted && this.ctrl['dropdownRecurringInterval'].errors"
+                 class="text-warning">
+                    Recurring Interval Type is required
+                </div>                
+              </ng-container>
+              </div>
+
+          </div>
+                    
+          <div class="text-center">
+            <button type="submit" class="btn btn-success px-4 m-1" >{{btnAdd}}</button>
+            <button type="reset" (click)="onReset()" class="btn btn-warning m-1">Reset</button>
+
+            <!--<p class="text white">Value: {{ signupForm.value | json }}</p>
+            <p class="text white">Value: {{ signupForm.valid | json }}</p>-->
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+
+<ng-container *ngIf="expenseTypeList;then expenseTypesExist else expenseTypesNOTExist"></ng-container>
+<ng-template #expenseTypesExist>  
+    <div class="table-responsive">      
+    <table class="table table-striped table-bordered table-sm caption-top">
+        <caption>Your Expense Types</caption>
+        <thead class="table-secondary">
+            <tr>
+                <th>Status</th>
+                <th>Update</th>
+                <th>Expense Type</th>
+                <th>Due Amount</th>
+                <th>Due Date</th>
+                <th>Is Recurring</th>
+                <th>Recurring Inteval</th>
+                <!--<th>Status</th>-->
+                <th>Created Date</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody >
+            <tr *ngFor="let expense of expenseTypeList">                
+               <td [ngClass]="updatingRecord === expense.Id ? 'updateInProgress' : expense.IsActive ? 'active' : 'inactive'"
+                (click)="onStatusChange(expense)">
+                <fa-icon [icon]="expense.IsActive === true? faToggleOn : faToggleOff" title={{expense.StatusText}}>
+                  {{expense.StatusText}}</fa-icon></td>
+                <td [ngClass]="updatingRecord === expense.Id ? 'updateInProgress' : expense.IsActive ? 'active' : 'inactive'"
+                (click)="onUpdate(expense)"><fa-icon [icon]="faPencil">Update</fa-icon></td>
+                <td [ngClass]="updatingRecord === expense.Id ? 'updateInProgress' : expense.IsActive ? 'active' : 'inactive'">
+                 {{ expense.Description }}</td>
+                <td [ngClass]="updatingRecord === expense.Id ? 'updateInProgress' : expense.IsActive ? 'active' : 'inactive'">
+                  {{ expense.DefaultDueAmount }}</td>
+                <td [ngClass]="updatingRecord === expense.Id ? 'updateInProgress' : expense.IsActive ? 'active' : 'inactive'">{{ expense.DefaultDueDateInMonth }}</td>
+                <td [ngClass]="updatingRecord === expense.Id ? 'updateInProgress' : expense.IsActive ? 'active' : 'inactive'">{{ expense.IsRecurringStr }}</td>
+                <td [ngClass]="updatingRecord === expense.Id ? 'updateInProgress' : expense.IsActive ? 'active' : 'inactive'">{{ expense.RecurringIntervalTypeStr }}</td>
+                <!--<td [ngClass]="updatingRecord === expense.Id ? 'updateInProgress' : expense.IsActive ? 'active' : 'inactive'">{{ expense.StatusText }}</td>-->
+                <td [ngClass]="updatingRecord === expense.Id ? 'updateInProgress' : expense.IsActive ? 'active' : 'inactive'">{{ expense.CreatedDate | date }}</td>
+                <td [ngClass]="updatingRecord === expense.Id ? 'updateInProgress' : expense.IsActive ? 'active' : 'inactive'"
+                (click)="onDelete(expense)"><fa-icon [icon]="faTrashAlt">Delete</fa-icon></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</ng-template>
+<ng-template #expenseTypesNOTExist>
+    <p></p>
+</ng-template>
+
+  

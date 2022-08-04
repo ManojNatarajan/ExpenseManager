@@ -1,0 +1,44 @@
+<ng-container *ngIf="expenseSummary && expenseSummary[0];then summaryExists else summaryNOTExist"></ng-container>
+<ng-template #summaryExists>      
+    <div class="table-responsive">      
+    <table class="table table-striped table-hover table-bordered table-sm caption-top">
+        <caption>Expense Summary List</caption>
+        <thead class="table-success">
+            <tr>
+                <th class="d-none">Select</th>
+                <th>Bill Period</th>
+                <th>Due Amount</th>
+                <th>Paid Amount</th>
+                <th>Balance Amount</th>
+                <th>Payment Status</th>
+                <th>Remarks</th>
+                <th>Last Updated</th>
+            </tr>
+        </thead>
+        <tbody class="table-light">
+            <tr 
+            *ngFor="let summary of expenseSummary"
+            (click)="onRowClick(summary)"             
+            [ngClass]="{ 'table-danger' : summary.IsSelected }"
+            >          
+                <td class="d-none"><button (click)="onRowClick(summary)">Select</button></td>      
+                <td>{{ summary.BillPeriod }}</td>                
+                <td>{{ summary.TotalAmount }}</td>
+                <td>{{ summary.PaidAmount }}</td>
+                <td>{{ summary.DueAmount }}</td>
+                <td>{{ summary.MonthlyPaymentStatusText }}</td>
+                <td>{{ summary.Additionalremarks }}</td>
+                <td>{{ summary.Modifieddate | date }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<app-monthlyexpenseentrieslist [ExpenseEntries]="expenseEntries" [SelectedSummary]="selectedSummary"></app-monthlyexpenseentrieslist>
+
+</ng-template>
+<ng-template #summaryNOTExist>
+    <p class="text-bold">{{expenseSummarySearchStr}}</p>
+</ng-template>
+
+

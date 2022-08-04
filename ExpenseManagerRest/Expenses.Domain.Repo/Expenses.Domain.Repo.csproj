@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Expenses.DAL.Repo\Expenses.DAL.Repo.csproj" />
+    <ProjectReference Include="..\Expenses.DAL\Expenses.DAL.csproj" />
+    <ProjectReference Include="..\Expenses.Domain.Model\Expenses.Domain.Model.csproj" />
+    <ProjectReference Include="..\GoldenEagles.Logger\GoldenEagles.Logger.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,173 @@
+2022-07-30T12:51:10.5441355+05:30 [Thread:22] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.UserRepository(Expenses.Domain.Model.Models.UserDTO):Find
+2022-07-30T12:51:14.6109668+05:30 [Thread:20] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.MonthlyExpenseRepository(Expenses.Domain.Model.Models.MonthlyExpenseDTO):Find
+2022-07-30T12:52:40.1165367+05:30 [Thread:14] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.ExpenseTypeRepository(Expenses.Domain.Model.Models.ExpenseTypeDTO):Find
+2022-07-30T12:53:12.7673206+05:30 [Thread:20] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.ExpenseTypeRepository(Expenses.Domain.Model.Models.ExpenseTypeDTO):Find
+2022-07-30T12:55:45.0292035+05:30 [Thread:20] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.ExpenseTypeRepository(Expenses.Domain.Model.Models.ExpenseTypeDTO):Find
+2022-07-30T12:57:23.7977737+05:30 [Thread:27] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.ExpenseTypeRepository(Expenses.Domain.Model.Models.ExpenseTypeDTO):Find
+2022-07-30T12:58:05.5759330+05:30 [Thread:27] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.ExpenseTypeRepository(Expenses.Domain.Model.Models.ExpenseTypeDTO):Find
+2022-07-30T12:58:12.9587379+05:30 [Thread:33] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.ExpenseTypeRepository(Expenses.Domain.Model.Models.ExpenseTypeDTO):Find
+2022-07-30T12:58:25.2187385+05:30 [Thread:32] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.MonthlyExpenseRepository(Expenses.Domain.Model.Models.MonthlyExpenseDTO):Find
+2022-07-30T12:58:26.5548651+05:30 [Thread:33] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.ExpenseTypeRepository(Expenses.Domain.Model.Models.ExpenseTypeDTO):Find
+2022-07-30T12:58:29.6685038+05:30 [Thread:33] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.MonthlyExpenseRepository(Expenses.Domain.Model.Models.MonthlyExpenseDTO):Find
+2022-07-30T12:58:33.4476019+05:30 [Thread:34] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.ExpenseTypeRepository(Expenses.Domain.Model.Models.ExpenseTypeDTO):Find
+2022-07-30T13:00:47.4659755+05:30 [Thread:28] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.ExpenseTypeRepository(Expenses.Domain.Model.Models.ExpenseTypeDTO):Find
+2022-07-30T13:02:53.4260772+05:30 [Thread:32] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.UserRepository(Expenses.Domain.Model.Models.UserDTO):Find
+2022-07-30T13:02:54.6071640+05:30 [Thread:15] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.MonthlyExpenseRepository(Expenses.Domain.Model.Models.MonthlyExpenseDTO):Find
+2022-07-30T13:02:54.7332536+05:30 [Thread:15] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.ExpenseTypeRepository(Expenses.Domain.Model.Models.ExpenseTypeDTO):Find
+2022-07-30T13:03:20.7297804+05:30 [Thread:25] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.ExpenseTypeRepository(Expenses.Domain.Model.Models.ExpenseTypeDTO):Find
+2022-07-30T13:03:47.0885763+05:30 [Thread:28] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.ExpenseTypeRepository(Expenses.Domain.Model.Models.ExpenseTypeDTO):Find
+2022-07-30T13:05:49.2201438+05:30 [Thread:26] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.ExpenseTypeRepository(Expenses.Domain.Model.Models.ExpenseTypeDTO):Find
+2022-07-30T13:06:50.5451867+05:30 [Thread:31] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.ExpenseTypeRepository(Expenses.Domain.Model.Models.ExpenseTypeDTO):Find
+2022-07-30T13:07:09.8483437+05:30 [Thread:30] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.ExpenseTypeRepository(Expenses.Domain.Model.Models.ExpenseTypeDTO):Find
+2022-07-30T13:07:47.6685748+05:30 [Thread:30] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.ExpenseTypeRepository(Expenses.Domain.Model.Models.ExpenseTypeDTO):Find
+2022-07-30T13:08:05.3449067+05:30 [Thread:25] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.ExpenseTypeRepository(Expenses.Domain.Model.Models.ExpenseTypeDTO):Find
+2022-07-30T13:08:17.9824302+05:30 [Thread:30] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.ExpenseTypeRepository(Expenses.Domain.Model.Models.ExpenseTypeDTO):Find
+2022-07-30T13:13:32.9096843+05:30 [Thread:4] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.UserRepository(Expenses.Domain.Model.Models.UserDTO):Find
+2022-07-30T13:13:34.1477552+05:30 [Thread:7] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.MonthlyExpenseRepository(Expenses.Domain.Model.Models.MonthlyExpenseDTO):Find
+2022-07-30T13:13:37.3333403+05:30 [Thread:7] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.ExpenseTypeRepository(Expenses.Domain.Model.Models.ExpenseTypeDTO):Find
+2022-07-30T13:17:56.6740122+05:30 [Thread:4] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.ExpenseTypeRepository(Expenses.Domain.Model.Models.ExpenseTypeDTO):Find
+2022-07-30T13:18:12.0805218+05:30 [Thread:3] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.ExpenseTypeRepository(Expenses.Domain.Model.Models.ExpenseTypeDTO):Find
+2022-07-30T13:19:17.4061491+05:30 [Thread:29] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.ExpenseTypeRepository(Expenses.Domain.Model.Models.ExpenseTypeDTO):Find
+2022-07-30T16:47:39.4647228+05:30 [Thread:8] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.UserRepository(Expenses.Domain.Model.Models.UserDTO):Find
+2022-07-30T16:49:27.6901784+05:30 [Thread:8] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.UserRepository(Expenses.Domain.Model.Models.UserDTO):Find
+2022-07-30T16:49:55.7014659+05:30 [Thread:8] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.UserRepository(Expenses.Domain.Model.Models.UserDTO):Find
+2022-07-30T16:51:00.0427761+05:30 [Thread:19] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.UserRepository(Expenses.Domain.Model.Models.UserDTO):Find
+2022-07-30T16:53:37.8409306+05:30 [Thread:8] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.UserRepository(Expenses.Domain.Model.Models.UserDTO):Find
+2022-07-30T16:59:51.8039456+05:30 [Thread:8] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.UserRepository(Expenses.Domain.Model.Models.UserDTO):Find
+2022-07-30T17:02:29.0267008+05:30 [Thread:17] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.UserRepository(Expenses.Domain.Model.Models.UserDTO):Find
+2022-07-30T17:03:01.8609681+05:30 [Thread:8] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.UserRepository(Expenses.Domain.Model.Models.UserDTO):Find
+2022-07-30T17:07:46.5116829+05:30 [Thread:13] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.UserRepository(Expenses.Domain.Model.Models.UserDTO):Find
+2022-07-30T17:09:57.3817807+05:30 [Thread:13] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.UserRepository(Expenses.Domain.Model.Models.UserDTO):Find
+2022-07-30T17:10:11.1129112+05:30 [Thread:8] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.UserRepository(Expenses.Domain.Model.Models.UserDTO):Find
+2022-07-30T17:10:34.0994878+05:30 [Thread:6] [ERR] (ExpenseManager) One or more errors occurred. (Unexpected character encountered while parsing value: �. Path '', line 0, position 0.)
+System.AggregateException: One or more errors occurred. (Unexpected character encountered while parsing value: �. Path '', line 0, position 0.)
+ ---> Newtonsoft.Json.JsonReaderException: Unexpected character encountered while parsing value: �. Path '', line 0, position 0.
+   at Newtonsoft.Json.JsonTextReader.ParseValue()
+   at Newtonsoft.Json.JsonReader.ReadAndMoveToContent()
+   at Newtonsoft.Json.JsonReader.ReadForType(JsonContract contract, Boolean hasConverter)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Deserialize(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value, JsonSerializerSettings settings)
+   at Google.Apis.Json.NewtonsoftJsonSerializer.Deserialize[T](String input)
+   at Google.Apis.Auth.SignedToken`2.FromSignedToken(String signedToken)
+   at Google.Apis.Auth.GoogleJsonWebSignature.ValidateInternalAsync(String jwt, ValidationSettings validationSettings)
+   --- End of inner exception stack trace ---
+   at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+   at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at ExpenseManagerRest.Controllers.AuthController.AuthenticateSocialUser(SocialUser socialUser) in E:\Software_Dev_Experiments\2022\ExpenseManager\Source\ExpenseManagerRest\ExpenseManagerRest\Controllers\AuthController.cs:line 78
+2022-07-30T17:11:53.4000970+05:30 [Thread:6] [ERR] (ExpenseManager) One or more errors occurred. (Unexpected character encountered while parsing value: �. Path '', line 0, position 0.)
+System.AggregateException: One or more errors occurred. (Unexpected character encountered while parsing value: �. Path '', line 0, position 0.)
+ ---> Newtonsoft.Json.JsonReaderException: Unexpected character encountered while parsing value: �. Path '', line 0, position 0.
+   at Newtonsoft.Json.JsonTextReader.ParseValue()
+   at Newtonsoft.Json.JsonReader.ReadAndMoveToContent()
+   at Newtonsoft.Json.JsonReader.ReadForType(JsonContract contract, Boolean hasConverter)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Deserialize(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value, JsonSerializerSettings settings)
+   at Google.Apis.Json.NewtonsoftJsonSerializer.Deserialize[T](String input)
+   at Google.Apis.Auth.SignedToken`2.FromSignedToken(String signedToken)
+   at Google.Apis.Auth.GoogleJsonWebSignature.ValidateInternalAsync(String jwt, ValidationSettings validationSettings)
+   --- End of inner exception stack trace ---
+   at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+   at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at ExpenseManagerRest.Controllers.AuthController.AuthenticateSocialUser(SocialUser socialUser) in E:\Software_Dev_Experiments\2022\ExpenseManager\Source\ExpenseManagerRest\ExpenseManagerRest\Controllers\AuthController.cs:line 78
+2022-07-30T17:26:18.4283603+05:30 [Thread:13] [ERR] (ExpenseManager) One or more errors occurred. (Unexpected character encountered while parsing value: �. Path '', line 0, position 0.)
+System.AggregateException: One or more errors occurred. (Unexpected character encountered while parsing value: �. Path '', line 0, position 0.)
+ ---> Newtonsoft.Json.JsonReaderException: Unexpected character encountered while parsing value: �. Path '', line 0, position 0.
+   at Newtonsoft.Json.JsonTextReader.ParseValue()
+   at Newtonsoft.Json.JsonReader.ReadAndMoveToContent()
+   at Newtonsoft.Json.JsonReader.ReadForType(JsonContract contract, Boolean hasConverter)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Deserialize(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value, JsonSerializerSettings settings)
+   at Google.Apis.Json.NewtonsoftJsonSerializer.Deserialize[T](String input)
+   at Google.Apis.Auth.SignedToken`2.FromSignedToken(String signedToken)
+   at Google.Apis.Auth.GoogleJsonWebSignature.ValidateInternalAsync(String jwt, ValidationSettings validationSettings)
+   --- End of inner exception stack trace ---
+   at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+   at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at ExpenseManagerRest.Controllers.AuthController.ValidateGoogleUser(SocialUser u) in E:\Software_Dev_Experiments\2022\ExpenseManager\Source\ExpenseManagerRest\ExpenseManagerRest\Controllers\AuthController.cs:line 157
+2022-07-30T17:26:33.8801622+05:30 [Thread:11] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.UserRepository(Expenses.Domain.Model.Models.UserDTO):Find
+2022-07-30T17:26:44.9242096+05:30 [Thread:7] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.UserRepository(Expenses.Domain.Model.Models.UserDTO):Find
+2022-07-30T17:26:59.7995680+05:30 [Thread:11] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.UserRepository(Expenses.Domain.Model.Models.UserDTO):Find
+2022-07-30T17:58:34.4558732+05:30 [Thread:25] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.UserRepository(Expenses.Domain.Model.Models.UserDTO):Find
+2022-07-30T17:58:36.0549550+05:30 [Thread:3] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.MonthlyExpenseRepository(Expenses.Domain.Model.Models.MonthlyExpenseDTO):Find
+2022-07-30T17:59:28.4575023+05:30 [Thread:14] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.UserRepository(Expenses.Domain.Model.Models.UserDTO):Find
+2022-07-30T17:59:28.4575027+05:30 [Thread:8] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.UserRepository(Expenses.Domain.Model.Models.UserDTO):Find
+2022-07-30T17:59:51.7104596+05:30 [Thread:8] [ERR] (ExpenseManager) Exception in Find. System.InvalidOperationException: An exception has been raised that is likely due to a transient failure.
+ ---> System.TimeoutException: The operation has timed out.
+   at Npgsql.Util.NpgsqlTimeout.Check()
+   at Npgsql.Util.NpgsqlTimeout.CheckAndGetTimeLeft()
+   at Npgsql.Util.NpgsqlTimeout.CheckAndApply(NpgsqlConnector connector)
+   at Npgsql.Internal.NpgsqlConnector.RawOpen(SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.<Open>g__OpenCore|191_1(NpgsqlConnector conn, SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.ConnectorPool.OpenNewConnector(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.ConnectorPool.<Get>g__RentAsync|28_0(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.<Open>g__OpenAsync|45_0(Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.Open()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternal(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.<>c.<MoveNext>b__19_0(DbContext _, Enumerator enumerator)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   --- End of inner exception stack trace ---
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at Expenses.DAL.Repo.Repository.RepositoryBase`1.Find(Expression`1 predicate) in E:\Software_Dev_Experiments\2022\ExpenseManager\Source\ExpenseManagerRest\Expenses.DAL.Repo\Repository\RepositoryBase.cs:line 69
+   at Expenses.Domain.Repo.Repository.DomainRepositoryBase`2.Find(Expression`1 predicate) in E:\Software_Dev_Experiments\2022\ExpenseManager\Source\ExpenseManagerRest\Expenses.Domain.Repo\Repository\DomainRepositoryBase.cs:line 51
+2022-07-30T18:01:16.0724146+05:30 [Thread:8] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.UserRepository(Expenses.Domain.Model.Models.UserDTO):Find
+2022-07-30T18:02:31.8209632+05:30 [Thread:22] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.UserRepository(Expenses.Domain.Model.Models.UserDTO):Find
+2022-07-30T18:02:31.8209629+05:30 [Thread:8] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.UserRepository(Expenses.Domain.Model.Models.UserDTO):Find
+2022-07-30T18:03:44.1166118+05:30 [Thread:11] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.UserRepository(Expenses.Domain.Model.Models.UserDTO):Find
+2022-07-30T18:03:44.1206171+05:30 [Thread:3] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.UserRepository(Expenses.Domain.Model.Models.UserDTO):Find
+2022-07-30T18:07:28.4902357+05:30 [Thread:29] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.UserRepository(Expenses.Domain.Model.Models.UserDTO):Find
+2022-07-30T18:07:28.4903176+05:30 [Thread:17] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.UserRepository(Expenses.Domain.Model.Models.UserDTO):Find
+2022-07-30T18:08:01.5385884+05:30 [Thread:20] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.UserRepository(Expenses.Domain.Model.Models.UserDTO):Find
+2022-07-30T18:08:01.5386064+05:30 [Thread:28] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.UserRepository(Expenses.Domain.Model.Models.UserDTO):Find
+2022-07-30T18:09:13.9532003+05:30 [Thread:28] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.UserRepository(Expenses.Domain.Model.Models.UserDTO):Find
+2022-07-30T18:09:43.6738067+05:30 [Thread:20] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.UserRepository(Expenses.Domain.Model.Models.UserDTO):Find
+2022-07-30T18:12:10.2907886+05:30 [Thread:16] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.UserRepository(Expenses.Domain.Model.Models.UserDTO):Find
+2022-07-30T18:12:54.7618501+05:30 [Thread:11] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.UserRepository(Expenses.Domain.Model.Models.UserDTO):Find
+2022-07-30T18:15:02.8693757+05:30 [Thread:9] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.UserRepository(Expenses.Domain.Model.Models.UserDTO):Find
+2022-07-30T18:15:12.7136215+05:30 [Thread:9] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.UserRepository(Expenses.Domain.Model.Models.UserDTO):Find
+2022-07-30T18:15:15.6391002+05:30 [Thread:32] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.MonthlyExpenseRepository(Expenses.Domain.Model.Models.MonthlyExpenseDTO):Find
+2022-07-30T18:17:50.9720392+05:30 [Thread:23] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.MonthlyExpenseRepository(Expenses.Domain.Model.Models.MonthlyExpenseDTO):Find
+2022-07-30T18:18:03.4337905+05:30 [Thread:31] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.MonthlyExpenseRepository(Expenses.Domain.Model.Models.MonthlyExpenseDTO):Find
+2022-07-30T18:18:27.7529138+05:30 [Thread:31] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.UserRepository(Expenses.Domain.Model.Models.UserDTO):Find
+2022-07-30T18:18:34.0704879+05:30 [Thread:9] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.MonthlyExpenseRepository(Expenses.Domain.Model.Models.MonthlyExpenseDTO):Find
+2022-07-30T18:23:57.1560658+05:30 [Thread:26] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.MonthlyExpenseRepository(Expenses.Domain.Model.Models.MonthlyExpenseDTO):Find
+2022-07-30T18:24:27.8323249+05:30 [Thread:17] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.MonthlyExpenseRepository(Expenses.Domain.Model.Models.MonthlyExpenseDTO):Find
+2022-07-30T18:25:33.9321080+05:30 [Thread:22] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.UserRepository(Expenses.Domain.Model.Models.UserDTO):Find
+2022-07-30T18:25:41.7367964+05:30 [Thread:28] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.UserRepository(Expenses.Domain.Model.Models.UserDTO):Find
+2022-07-30T18:25:43.0680555+05:30 [Thread:34] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.MonthlyExpenseRepository(Expenses.Domain.Model.Models.MonthlyExpenseDTO):Find
+2022-07-30T18:25:45.9488410+05:30 [Thread:34] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.UserRepository(Expenses.Domain.Model.Models.UserDTO):Find
+2022-07-30T18:25:59.8906547+05:30 [Thread:17] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.UserRepository(Expenses.Domain.Model.Models.UserDTO):Find
+2022-07-30T18:26:01.9088359+05:30 [Thread:34] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.UserRepository(Expenses.Domain.Model.Models.UserDTO):Find
+2022-07-30T18:26:03.0025497+05:30 [Thread:28] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.MonthlyExpenseRepository(Expenses.Domain.Model.Models.MonthlyExpenseDTO):Find
+2022-07-30T18:29:38.0237993+05:30 [Thread:28] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.MonthlyExpenseRepository(Expenses.Domain.Model.Models.MonthlyExpenseDTO):Find
+2022-07-30T18:30:08.2664880+05:30 [Thread:34] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.MonthlyExpenseRepository(Expenses.Domain.Model.Models.MonthlyExpenseDTO):Find
+2022-07-30T18:30:21.1150131+05:30 [Thread:28] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.UserRepository(Expenses.Domain.Model.Models.UserDTO):Find
+2022-07-30T18:30:36.3179164+05:30 [Thread:34] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.UserRepository(Expenses.Domain.Model.Models.UserDTO):Find
+2022-07-30T18:30:37.3893264+05:30 [Thread:23] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.MonthlyExpenseRepository(Expenses.Domain.Model.Models.MonthlyExpenseDTO):Find
+2022-07-30T18:30:50.8405182+05:30 [Thread:28] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.UserRepository(Expenses.Domain.Model.Models.UserDTO):Find
+2022-07-30T18:30:51.9014012+05:30 [Thread:34] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.MonthlyExpenseRepository(Expenses.Domain.Model.Models.MonthlyExpenseDTO):Find
+2022-07-30T18:50:12.0762757+05:30 [Thread:13] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.UserRepository(Expenses.Domain.Model.Models.UserDTO):Find
+2022-07-30T18:50:14.1566756+05:30 [Thread:13] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.MonthlyExpenseRepository(Expenses.Domain.Model.Models.MonthlyExpenseDTO):Find
+2022-07-30T19:41:13.2436088+05:30 [Thread:14] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.UserRepository(Expenses.Domain.Model.Models.UserDTO):Find
+2022-07-30T19:41:16.5768642+05:30 [Thread:14] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.MonthlyExpenseRepository(Expenses.Domain.Model.Models.MonthlyExpenseDTO):Find
+2022-07-30T19:54:34.9953504+05:30 [Thread:34] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.UserRepository(Expenses.Domain.Model.Models.UserDTO):Find
+2022-07-30T19:54:36.1494740+05:30 [Thread:34] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.MonthlyExpenseRepository(Expenses.Domain.Model.Models.MonthlyExpenseDTO):Find
