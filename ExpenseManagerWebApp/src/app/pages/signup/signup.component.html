@@ -1,0 +1,112 @@
+<div class="container">
+    <div class="card bg-dark text-white m-3 mt-5">
+      <h5 class="card-header text-center">
+        Signup Please
+      </h5>
+      <div class="card-body">
+        <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+          <div class="form-row row">
+            <div class="form-group col-6">
+              <label>Name</label>
+              
+              <input
+              formControlName="name" [ngClass]="{ 'is-invalid': submitted && ctrl['name'].errors }"
+              type="text" class="form-control" />
+
+              <div *ngIf="submitted && ctrl['name'].errors" class="text-warning">
+                <div *ngIf="ctrl['name'].errors['required']">
+                  Name is required
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group col-6">
+              <label>Mobile</label>
+              <input formControlName="mobile" [ngClass]="{ 'is-invalid': submitted && ctrl['mobile'].errors }"
+               type="text" class="form-control" />
+
+              <div *ngIf="submitted && ctrl['mobile'].errors" class="text-warning">
+                <div *ngIf="ctrl['mobile'].errors['required']">
+                  Mobile is required
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+                <label>Email</label>
+                <input formControlName="email" [ngClass]="{ 'is-invalid': submitted && ctrl['email'].errors }"                
+                type="text" class="form-control" />
+
+                <div *ngIf="ctrl['email'].touched && ctrl['email'].errors" class="text-warning">
+                    <div *ngIf="ctrl['email'].errors['required']">
+                        Email is required
+                    </div>
+                    <div *ngIf="ctrl['email'].errors['email']">
+                        Email must be a valid email address
+                    </div>
+                </div>
+            </div>
+          </div>
+
+          <!-- ng-container can be used instead of div to handle nested if loops like below example in password section
+          <ng-container>
+            <div class="text-danger">
+              Value is required.
+            </div>
+          </ng-container>-->
+          
+          <div class="form-row row">
+            <div class="form-group col-6">
+              <label>Password</label>
+              <input formControlName="password" [ngClass]="{ 'is-invalid': submitted && ctrl['password'].errors }"
+              type="password" class="form-control" />
+              
+              <ng-container *ngIf="ctrl['password'].touched && ctrl['password'].errors">
+                <div *ngIf="ctrl['password'].errors['required']" class="text-warning">
+                    Password is required
+                </div>
+                <div *ngIf="ctrl['password'].errors['minlength']" class="text-warning">
+                  Password must be at least 6 characters
+                </div>
+              </ng-container>
+
+            </div>
+            <div class="form-group col-6">
+              <label>Confirm Password</label>
+              <input formControlName="confirmPassword" [ngClass]="{ 'is-invalid': submitted && ctrl['confirmPassword'].errors }"
+              type="password" class="form-control" />
+              <ng-container *ngIf="ctrl['confirmPassword'].touched && ctrl['confirmPassword'].errors">
+                <div *ngIf="ctrl['confirmPassword'].errors['required']" class="text-warning">
+                  Confirm Password is required
+                </div>
+                <div *ngIf="ctrl['confirmPassword'].errors['mustmatch']" class="text-warning">
+                  Passwords must match
+                </div>
+              </ng-container>
+            </div>
+          </div>
+          <div class="form-group form-check">
+            <input formControlName="acceptTandC" [ngClass]="{ 'is-invalid': submitted && ctrl['acceptTandC'].errors }"
+            type="checkbox" id="acceptTerms" class="form-check-input" />
+            <label for="acceptTerms" class="form-check-label"
+              >Accept Terms & Conditions</label
+            >
+            <div *ngIf="submitted && ctrl['acceptTandC'].errors" class="text-warning">
+              Accept Ts & Cs is required
+            </div>
+          </div>
+
+          <div class="text-center">
+            <button class="btn btn-success px-4 m-1" >Signup</button>
+            <button (click)="onReset" class="btn btn-warning m-1" type="reset">Reset</button>
+
+            <!--<p class="text white">Value: {{ signupForm.value | json }}</p>
+            <p class="text white">Value: {{ signupForm.valid | json }}</p>-->
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,19 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" [routerLink]=" ['/'] ">
+        <img src="../../../assets/img.png" width="30" height="30" alt="" />
+        Expense Tracker App
+    </a>
+
+    <div class="navbar-collapse">
+        <div class="navbar-nav ml-auto">
+            <div *ngIf="userLoggedIn" class="navbar-text float-left">
+                {{userLoggedIn}}
+            </div>
+            <a class="nav-item nav-link" [routerLink]=" ['/'] ">Home</a>
+            <a *ngIf="!userLoggedIn" class="nav-item nav-link" routerLinkActive="active" [routerLink]=" ['/signin'] ">Signin</a>
+            <a *ngIf="!userLoggedIn" class="nav-item nav-link" routerLinkActive="active" [routerLink]=" ['/signup'] ">Signup</a>
+            <a class="nav-item nav-link" [routerLink]=" ['/expensetypeconfig'] " >Manage Expense Types</a>
+            <a class="nav-item nav-link" (click)="handleSignOut()" >Logout</a>
+        </div>
+    </div>
+</nav>

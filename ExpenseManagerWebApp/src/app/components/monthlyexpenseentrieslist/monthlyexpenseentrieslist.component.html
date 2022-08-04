@@ -1,0 +1,33 @@
+<ng-container *ngIf="ExpenseEntries;then expenseEntriesExist else expenseEntriesNOTExist"></ng-container>
+<ng-template #expenseEntriesExist>  
+    <div class="table-responsive">      
+    <table class="table table-striped table-bordered table-sm caption-top">
+        <caption>Expense Entries for the month</caption>
+        <thead class="table-success">
+            <tr>
+                <th>Bill Period</th>
+                <th>Expense Type</th>
+                <th>Due Amount</th>
+                <th>Paid Amount</th>
+                <th>Remarks</th>
+                <th>Payment Status</th>
+                <th>Payment Date</th>
+            </tr>
+        </thead>
+        <tbody class="table-light">
+            <tr *ngFor="let expense of ExpenseEntries">                
+                <td>{{ expense.BillPeriod }}</td>
+                <td>{{ expense.ExpenseTypeId }}</td>
+                <td>{{ expense.Dueamount }}</td>
+                <td>{{ expense.Paymentamount }}</td>
+                <td>{{ expense.AdditionalRemarks }}</td>
+                <td>{{ expense.ExpensePaymentStatusText }}</td>
+                <td>{{ expense.Paymentdate | date }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</ng-template>
+<ng-template #expenseEntriesNOTExist>
+    <p></p>
+</ng-template>

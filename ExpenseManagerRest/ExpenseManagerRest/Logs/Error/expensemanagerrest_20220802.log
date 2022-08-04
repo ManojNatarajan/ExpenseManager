@@ -1,0 +1,15 @@
+2022-08-02T22:16:02.9110425+05:30 [Thread:19] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.UserRepository(Expenses.Domain.Model.Models.UserDTO):Find
+2022-08-02T22:17:07.4069773+05:30 [Thread:19] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.UserRepository(Expenses.Domain.Model.Models.UserDTO):Find
+2022-08-02T22:34:01.7860331+05:30 [Thread:13] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.UserRepository(Expenses.Domain.Model.Models.UserDTO):Find
+2022-08-02T22:34:31.0566312+05:30 [Thread:11] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.UserRepository(Expenses.Domain.Model.Models.UserDTO):Find
+2022-08-02T22:42:27.7175115+05:30 [Thread:18] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.UserRepository(Expenses.Domain.Model.Models.UserDTO):Find
+2022-08-02T22:42:44.9463335+05:30 [Thread:18] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.UserRepository(Expenses.Domain.Model.Models.UserDTO):Find
+2022-08-02T23:03:11.5027179+05:30 [Thread:7] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.UserRepository(Expenses.Domain.Model.Models.UserDTO):Find
+2022-08-02T23:03:13.2138192+05:30 [Thread:11] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.MonthlyExpenseRepository(Expenses.Domain.Model.Models.MonthlyExpenseDTO):Find
+2022-08-02T23:03:14.4967564+05:30 [Thread:11] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.ExpenseTypeRepository(Expenses.Domain.Model.Models.ExpenseTypeDTO):Find
+2022-08-02T23:03:36.2529996+05:30 [Thread:11] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.UserRepository(Expenses.Domain.Model.Models.UserDTO):Find
+2022-08-02T23:03:37.3267645+05:30 [Thread:11] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.MonthlyExpenseRepository(Expenses.Domain.Model.Models.MonthlyExpenseDTO):Find
+2022-08-02T23:03:39.9074631+05:30 [Thread:11] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.ExpenseTypeRepository(Expenses.Domain.Model.Models.ExpenseTypeDTO):Find
+2022-08-02T23:03:50.8306687+05:30 [Thread:18] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.UserRepository(Expenses.Domain.Model.Models.UserDTO):Find
+2022-08-02T23:03:51.9075341+05:30 [Thread:18] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.MonthlyExpenseRepository(Expenses.Domain.Model.Models.MonthlyExpenseDTO):Find
+2022-08-02T23:03:58.8553481+05:30 [Thread:18] [INF] (ExpenseManager) Expenses.DAL.Repo.Repository.ExpenseTypeRepository(Expenses.Domain.Model.Models.ExpenseTypeDTO):Find

@@ -1,0 +1,11 @@
+/* You can add global styles to this file, and also import other style files */
+/*bootstrap css reference added in angular.json*/
+/*@import "~bootstrap/dist/css/bootstrap.min.css";*/
+
+@import "~ngx-toastr/toastr";
+
+
+.whiteBackground{
+    background-color: whitesmoke;
+    color: black;
+}

@@ -1,0 +1,13 @@
+.inactive{
+    background-color:bisque;
+}
+
+.active{
+    background-color:cadetblue;
+    font-weight: bold;
+}
+
+.updateInProgress{
+    background-color:yellow;
+    font-weight: bold;
+}

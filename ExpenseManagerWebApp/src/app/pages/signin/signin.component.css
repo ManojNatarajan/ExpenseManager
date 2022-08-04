@@ -1,0 +1,13 @@
+.fbicon {    
+        border: 1px solid #D3D3D3;    
+        border-radius: 6px;        
+        padding:3px 10px;
+        display: inline-block; 
+        vertical-align: middle;
+}
+
+.googleicon {
+    padding-left: 10px; 
+    display: inline-block;
+    vertical-align: middle;
+}
