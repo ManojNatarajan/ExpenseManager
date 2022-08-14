@@ -16,6 +16,7 @@ namespace Expenses.Domain.Repo.Repository
         DomainResponse<long> AddExpenseEntry(ExpenseEntryContract expenseEntryContract);
         DomainResponse<long> UpdateExpenseEntry(ExpenseEntryContract expenseItem);
         DomainResponse<bool> DeleteExpenseEntry(long expenseEntryId);
+        DomainResponse<List<ExpenseEntryDTO>> GetExpenseEntriesForMonthYear(long userId, int month, int year);
     }
 
     public class ExpenseEntryDomainRepository : DomainRepositoryBase<ExpenseEntryDTO, Expenseentry>, IExpenseEntryDomainRepository
@@ -56,6 +57,38 @@ namespace Expenses.Domain.Repo.Repository
             return response;
         }
 
+
+        public DomainResponse<List<ExpenseEntryDTO>> GetExpenseEntriesForMonthYear(long userId, int month, int year)
+        {
+            DomainResponse<List<ExpenseEntryDTO>> response = new DomainResponse<List<ExpenseEntryDTO>>();
+            try
+            {
+                if (!IsUserExist(userId))
+                {
+                    response.AddErrorDescription(-1, "Failed to get Monthly Expense Summary list for user. ", $"User [{userId}] NOT found.");
+                    return response;
+                }
+                Expression<Func<Monthlyexpense, bool>> isUserHasMonthlyExpenses = u => u.Userid == userId && u.Billmonth == month && u.Billyear == year;
+                Monthlyexpense mSummary = _unitOfWork.MonthlyExpenseRepo.Find(isUserHasMonthlyExpenses).FirstOrDefault();
+                if (mSummary == null)
+                {
+                    response.AddErrorDescription(-1, "Failed to Get Expense Entries For Month and Year. ", $"Monthly expense summary was NOT found.");
+                    return response;
+                }
+
+                Expression<Func<Expenseentry, bool>> isMonthExpenseEntriesExists = u => u.Monthlyexpenseid == mSummary.Id;
+                response.Value = base.Find(isMonthExpenseEntriesExists)?.Value?.ToList();
+                if (response.Value == null || !response.Value.Any())
+                    response.AddErrorDescription(-1, "Failed to get Monthly Expense Summary list for user. ", $"No entries found for User [{userId}]!");
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e);
+                response.AddErrorDescription(-1, "Exception in getting Monthly Expense Summary.", $"Exception information: {e}");
+            }
+            return response;
+        }
+
         public DomainResponse<long> AddExpenseEntry(ExpenseEntryContract expenseItem)
         {
             DomainResponse<long> returnValue = new DomainResponse<long>();
@@ -74,11 +107,42 @@ namespace Expenses.Domain.Repo.Repository
                     monthSummary.Billyear = expenseItem.BillYear;
                     monthSummary.Monthlypaymentstatusid = 2; //default is unpaid
                 }
+                              
 
                 //Step 2: Update MonthlyExpense Amount Fields as per the Expense Entry Received. 
-                monthSummary.Totalamount += expenseItem.ExpenseEntry.Dueamount;
                 monthSummary.Paidamount += expenseItem.ExpenseEntry.Paymentamount;
+                if (expenseItem.ExpenseEntry.Issplittedpayment)
+                {
+                    decimal prevSplitDueAmount = 0;
+                    decimal? totalPaidAmount = 0;
+                    if (monthSummary.Expenseentries != null && monthSummary.Expenseentries.Any())
+                    {
+                        var e = monthSummary.Expenseentries.Where(x =>
+                            x.Expensetypeid == expenseItem.ExpenseEntry.ExpenseTypeId
+                        )?.MaxBy(x => x.Id);
+
+                        if (e != null)
+                            prevSplitDueAmount = e.Dueamount;
+
+                        totalPaidAmount = monthSummary.Expenseentries.Where(x =>
+                            x.Expensetypeid == expenseItem.ExpenseEntry.ExpenseTypeId
+                        )?.Sum(x => x.Paymentamount);
+                    }
+
+                    monthSummary.Totalamount -= prevSplitDueAmount;
+                    monthSummary.Totalamount += expenseItem.ExpenseEntry.Dueamount;
+
+                    //monthSummary.Dueamount -= prevSplitDueAmount;
+                    //var paidAmount = expenseItem.ExpenseEntry.Paymentamount + totalPaidAmount;
+                    //var amountToBeMinus = paidAmount >= expenseItem.ExpenseEntry.Dueamount ? expenseItem.ExpenseEntry.Dueamount : paidAmount.Value;
+                    //monthSummary.Dueamount = expenseItem.ExpenseEntry.Dueamount - amountToBeMinus;
+                }
+                else
+                {
+                    monthSummary.Totalamount += expenseItem.ExpenseEntry.Dueamount;
+                }
                 monthSummary.Dueamount = monthSummary.Totalamount - monthSummary.Paidamount;
+
                 monthSummary.Monthlypaymentstatusid = GetMonthlyPaymentStatus(monthSummary);
                 if (monthSummary.Monthlypaymentstatusid == -1)
                     throw new Exception("Error in Monthly Summary calculation! Due amount cannot be greater than total amount.");
@@ -129,7 +193,8 @@ namespace Expenses.Domain.Repo.Repository
 
                 //Step 2: Update Monthly Expense Summary with updated amounts & payment status
                 e.Monthlyexpense.Totalamount -= oldDueAmount;
-                e.Monthlyexpense.Paidamount -= oldPaymentAmount;                
+                e.Monthlyexpense.Paidamount -= oldPaymentAmount; 
+                
                 e.Monthlyexpense.Totalamount += expenseItem.ExpenseEntry.Dueamount;
                 e.Monthlyexpense.Paidamount += expenseItem.ExpenseEntry.Paymentamount;
                 e.Monthlyexpense.Dueamount = e.Monthlyexpense.Totalamount - e.Monthlyexpense.Paidamount;
@@ -169,6 +234,7 @@ namespace Expenses.Domain.Repo.Repository
                 decimal oldDueAmount = e.Dueamount;
                 decimal oldPaymentAmount = e.Paymentamount;
                 long monthlySummaryId = e.Monthlyexpenseid;                
+                long expenseTypeId = e.Expensetypeid;
                 _unitOfWork.ExpenseEntryRepo.Remove(e);
 
                 //Step 2: Check if Month Summary has other Expense Entries. If yes, then update Amounts accordingly else delete Month Summary also
@@ -181,9 +247,34 @@ namespace Expenses.Domain.Repo.Repository
                 }
                 else
                 {
-                    mSummary.Totalamount -= oldDueAmount;
                     mSummary.Paidamount -= oldPaymentAmount;
-                    mSummary.Dueamount = mSummary.Totalamount - mSummary.Paidamount;
+                    if (e.Issplittedpayment)
+                    {
+                        decimal prevSplitDueAmount = 0;
+                        decimal? totalPaidAmount = 0;
+                        if (mSummary.Expenseentries != null && mSummary.Expenseentries.Any())
+                        {
+                            var expenseEntry = mSummary.Expenseentries.Where(x =>
+                                x.Expensetypeid == expenseTypeId
+                            )?.MaxBy(x => x.Id);
+
+                            if (e != null)
+                                prevSplitDueAmount = e.Dueamount;
+
+                            totalPaidAmount = mSummary.Expenseentries.Where(x =>
+                                x.Expensetypeid == expenseTypeId
+                            )?.Sum(x => x.Paymentamount);
+                        }
+                        decimal balanceAmount = totalPaidAmount.Value - oldPaymentAmount;
+                        if (balanceAmount == 0)
+                            mSummary.Totalamount -= oldDueAmount;
+                        mSummary.Dueamount += balanceAmount;
+                    }
+                    else
+                    {
+                        mSummary.Totalamount -= oldDueAmount;
+                        mSummary.Dueamount += mSummary.Paidamount;
+                    }
                     mSummary.Monthlypaymentstatusid = GetMonthlyPaymentStatus(mSummary);
                     if (mSummary.Monthlypaymentstatusid == -1)
                         throw new Exception("Error in Monthly Summary calculation! Due amount cannot be greater than total amount.");
@@ -261,6 +352,12 @@ namespace Expenses.Domain.Repo.Repository
         {
             PropertyInfo prop = entity?.GetType()?.GetProperty(propertyName);
             return prop?.GetValue(entity);
+        }
+
+        private bool IsUserExist(long userID)
+        {
+            User u = _unitOfWork.UserRepo.Get(userID);
+            return u == null ? false : true;
         }
 
         #endregion

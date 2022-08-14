@@ -44,6 +44,23 @@ namespace ExpenseManagerRest.Controllers
                 return BadRequest($"ExpenseSummaryList Failed: {result.ErrorSummary}");
         }
 
+        [EnableCors("AngularOrigin")]
+        [HttpGet]
+        [Route("GetExpenseEntriesForMonth/{userId:long}/{month:int}/{year:int}")]
+        public IActionResult GetExpenseEntriesForMonth(long userId, int month, int year)
+        {
+            if (userId <= 0)
+                return BadRequest("ExpenseSummaryList Failed: User NOT found!");
+
+            DomainResponse<List<ExpenseEntryDTO>> result = _expenseEntryRepo.GetExpenseEntriesForMonthYear(userId, month, year);
+            if (result.IsSuccess && result.Value != null && result.Value.Any())
+            {
+                return Ok(result.Value.ToList<ExpenseEntryDTO>());
+            }
+            else
+                return BadRequest($"ExpenseSummaryList Failed: {result.ErrorSummary}");
+        }
+        
         [HttpGet]
         [Route("GetExpenseEntriesForMonth/{monthlyExpenseId:long}")]
         public IActionResult GetExpenseEntriesForMonth(long monthlyExpenseId)

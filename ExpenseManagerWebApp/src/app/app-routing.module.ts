@@ -8,6 +8,7 @@ import { SignupComponent } from './pages/signup/signup.component';
 import { ExpensetypeconfigComponent } from './pages/expensetypeconfig/expensetypeconfig.component';
 
 import { AuthGuard } from './guards/auth-guard.service';
+import { ExpenseentryComponent } from './pages/expenseentry/expenseentry.component';
 
 const routes: Routes = [  
   { 
@@ -26,6 +27,11 @@ const routes: Routes = [
   {
     path: 'expensetypeconfig',
     component: ExpensetypeconfigComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'expenseentry',
+    component: ExpenseentryComponent,
     canActivate: [AuthGuard]
   },
   {

@@ -96,15 +96,20 @@ namespace ExpenseManagerRest.Controllers
                 }
                 if (user != null)
                 {
-                    Task<UserDTO> dbUser = GetUser(user.Socialuserid);
-                    UserDTO u = await dbUser;
-                    if (u == null)
+                    Task<UserDTO> taskDbUser = GetUser(user.Socialuserid);
+                    UserDTO dbUser = await taskDbUser;
+                    string jwtToken;
+                    if (dbUser == null)
                     {
                         DomainResponse<long> response = _userDomainRepo.AddEntity(user);
                         user.Id = response.Value;
+                        jwtToken = GetJwtToken(user);
                     }
-
-                    return Ok(GetJwtToken(user));
+                    else
+                    {
+                        jwtToken = GetJwtToken(dbUser);
+                    }
+                    return Ok(jwtToken);
                 }
                 else
                 {
