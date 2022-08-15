@@ -9,6 +9,7 @@ CREATE TABLE IF NOT EXISTS public.ExpenseEntry
     DueAmount numeric(18,2) NOT NULL,    
     PaymentAmount numeric(18,2) NOT NULL,
     PaymentDate timestamptz,
+    issplittedpayment boolean NOT NULL DEFAULT false,
     ExpensePaymentStatusID int NOT NULL,
     AdditionalRemarks  varchar(300),
     IsDeleted boolean,
