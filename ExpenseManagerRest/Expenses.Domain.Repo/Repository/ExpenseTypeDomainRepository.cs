@@ -12,6 +12,7 @@ namespace Expenses.Domain.Repo.Repository
     public interface IExpenseTypeDomainRepository : IDomainRepositoryBase<ExpenseTypeDTO, Expensetype>
     {
         DomainResponse<List<ExpenseTypeDTO>> GetExpenseTypesForUser(long userID);
+        DomainResponse<ExpenseTypeDTO> CheckExpenseTypeExists(long? userId, string description);
     }
 
     public class ExpenseTypeDomainRepository : DomainRepositoryBase<ExpenseTypeDTO, Expensetype>, IExpenseTypeDomainRepository
@@ -49,6 +50,23 @@ namespace Expenses.Domain.Repo.Repository
             {
                 _logger.LogError($"Exception in GetExpenseTypesForUser. {e}");
                 response.AddErrorDescription(-1, "Exception in GetExpenseTypesForUser.", $"Exception information: {e}");
+            }
+            return response;
+        }
+        public DomainResponse<ExpenseTypeDTO> CheckExpenseTypeExists(long? userId, string description)
+        {
+            DomainResponse<ExpenseTypeDTO> response = new DomainResponse<ExpenseTypeDTO>();
+            try
+            {
+                Expression<Func<Expensetype, bool>> isUserExist = u => u.Userid == userId.Value && u.Description == description;
+                response.Value = base.Find(isUserExist)?.Value?.FirstOrDefault();
+                if (response.Value != null)
+                    response.AddErrorDescription(1, "Expense type already exist!");
+            }
+            catch (Exception e)
+            {
+                _logger.LogError($"Exception in validate expense type. {e}");
+                response.AddErrorDescription(-1, "Exception in CheckExpenseTypeExists.", $"Exception information: {e}");
             }
             return response;
         }

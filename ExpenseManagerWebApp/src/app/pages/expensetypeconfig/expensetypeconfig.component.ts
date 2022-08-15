@@ -135,7 +135,7 @@ export class ExpensetypeconfigComponent implements OnInit {
   }
 
   add(){
-    this.expenseTypeService.addExpense(this.e).subscribe({
+    this.expenseTypeService.addExpenseType(this.e).subscribe({
       next: (response) => {
         this.logger.Info(`Expense Type added: ${response}`)
         this.onReset();
@@ -143,29 +143,43 @@ export class ExpensetypeconfigComponent implements OnInit {
         this.getExpenseTypesForUser();
       },
       error: (err) => {
-        this.logger.UnknownWithMessage(err, 'Expense Type addition Failed with API Error.')
+        if (err.status == 409){
+          this.alert.error(err.error);
+        }
+        else{
+          this.logger.UnknownWithMessage(err, 'Expense Type addition Failed with API Error.')
+        }
       },
       complete: () => this.logger.Info('Expense Type addition Complete!')
     });
   }
 
   update(){
-    this.expenseTypeService.updateExpense(this.e).subscribe({
-      next: (response) => {
-        this.logger.Info(`Expense Type updated: ${response}`)
-        this.onReset();
-        this.alert.success("Expense Type updated successfully.");
-        this.getExpenseTypesForUser();
-        this.updatingRecord = 0;
-      },
-      error: (err) => {
-        this.logger.UnknownWithMessage(err, 'Expense Type update Failed with API Error.')
-        this.onReset();
-        this.updatingRecord = 0;
-        this.alert.success("Sorry, Expense Type update failed.");
-      },
-      complete: () => this.logger.Info('Expense Type update Complete!')
-    });
+    let expenseTypeExistsInOtherType = this.expenseTypeList.filter(
+      x => x.Id != this.e.Id && x.Description.toUpperCase() == this.e.Description.toUpperCase()
+    );
+    if (expenseTypeExistsInOtherType.length == 0)
+    {
+      this.expenseTypeService.updateExpenseType(this.e).subscribe({
+        next: (response) => {
+          this.logger.Info(`Expense Type updated: ${response}`)
+          this.onReset();
+          this.alert.success("Expense Type updated successfully.");
+          this.getExpenseTypesForUser();
+          this.updatingRecord = 0;
+        },
+        error: (err) => {
+          this.logger.UnknownWithMessage(err, 'Expense Type update Failed with API Error.')
+          this.onReset();
+          this.updatingRecord = 0;
+          this.alert.success("Sorry, Expense Type update failed.");
+        },
+        complete: () => this.logger.Info('Expense Type update Complete!')
+      });
+    }
+    else{
+      this.alert.error("Expense type already exist.");
+    }
   }
 
 
