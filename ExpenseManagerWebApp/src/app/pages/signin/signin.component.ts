@@ -7,6 +7,7 @@ import { LoggerService } from 'src/app/common/logger.service';
 import { ExpensemanagerauthService } from 'src/app/services/expensemanagerauth.service';
 import { faFacebookF } from '@fortawesome/free-brands-svg-icons';
 import { SocialLoginHandler } from 'src/app/common/Social-login-handler';
+import { LoginService } from 'src/app/services/loginService.service';
 
 
 
@@ -25,7 +26,8 @@ export class SigninComponent implements OnInit {
     private localStore: LocalService,
     private logger: LoggerService,
     private alert: AlertService,
-    private socialLoginHandler: SocialLoginHandler
+    private socialLoginHandler: SocialLoginHandler,
+    private loginService : LoginService
   ) { 
   }
 
@@ -45,6 +47,7 @@ export class SigninComponent implements OnInit {
     this.auth.SignInUsingMobileAndPassword(mobile, password).subscribe(
       {
         next: (accessTokenRes) => {
+          this.loginService.userLoggedIn = true;
           this.logger.debug(`JWT Token: ${accessTokenRes}`);
           this.localStore.saveData('jwt', accessTokenRes);
           this.router.navigateByUrl('/');

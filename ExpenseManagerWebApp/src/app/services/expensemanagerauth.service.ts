@@ -5,6 +5,7 @@ import { LocalService } from '../common/local.service';
 import { LoggerService } from '../common/logger.service';
 import { User } from '../models/user';
 import { SocialUserDTO } from '../models/SocialUser';
+import { LoginService } from './loginService.service';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,8 @@ export class ExpensemanagerauthService {
   constructor(
     private http: HttpClient,
     private localStore: LocalService,
-    private logger: LoggerService
+    private logger: LoggerService,
+    private loginService: LoginService
     ) {
     this.url = environment.apiServer.baseUrl + environment.apiServer.version + environment.apiServer.authAPI;
     console.log(this.url);
@@ -52,6 +54,7 @@ export class ExpensemanagerauthService {
 
   SignOut()
   {
+    this.loginService.userLoggedIn = false;
     this.localStore.removeData('jwt');
   }
 }
