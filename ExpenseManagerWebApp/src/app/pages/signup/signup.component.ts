@@ -77,7 +77,12 @@ export class SignupComponent implements OnInit {
         this.alert.success("Signup Successful! Please Login to continue. ");
       },
       error: (err) => {
-        this.logger.UnknownWithMessage(err, 'Signup Failed with API Error.')
+        if (err.status == 409){
+          this.alert.error(err.error);
+        }
+        else{
+            this.logger.UnknownWithMessage(err, 'Signup Failed with API Error.')
+        }
       },
       complete: () => this.logger.Info('Signup Complete!')
     });

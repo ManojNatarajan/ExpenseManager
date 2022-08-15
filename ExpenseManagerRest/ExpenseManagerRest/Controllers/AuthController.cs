@@ -39,13 +39,22 @@ namespace ExpenseManagerRest.Controllers
         [Route("user/signup")]
         public IActionResult SignupNewUser(UserDTO user)
         {
-            //Duplicate User/Mobile Check Validation: To Do
+            //Duplicate User/Mobile Check Validation: 
+            DomainResponse<UserDTO> response = _userDomainRepo.CheckUserExits(user?.Email, user.Mobile.Value);
+            if (response.ErrorDetails != null && response.ErrorDetails.Count > 0 )
+            {
+                bool? userExist = response?.ErrorDetails?.Any(x => x.Number == 1);
+                if (userExist.Value)
+                    return Conflict("User already exist.");
+                else
+                    return BadRequest(response.ErrorSummary);
+            }
 
-            DomainResponse<long> response = _userDomainRepo.AddEntity(user);
-            if (response.IsSuccess)
-                return Ok(response.Value);
+            DomainResponse<long> responseUser = _userDomainRepo.AddEntity(user);
+            if (responseUser.IsSuccess)
+                return Ok(responseUser.Value);
             else
-                return BadRequest(response.ErrorSummary);
+                return BadRequest(responseUser.ErrorSummary);
         }
 
 
