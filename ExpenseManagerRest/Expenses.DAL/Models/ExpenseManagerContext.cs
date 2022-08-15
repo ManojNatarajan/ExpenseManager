@@ -17,20 +17,16 @@ namespace Expenses.DAL.Models
         }
 
         public virtual DbSet<Expenseentry> Expenseentries { get; set; } = null!;
-        public virtual DbSet<Expensepaymentstatus> Expensepaymentstatuses { get; set; } = null!;
         public virtual DbSet<Expensetype> Expensetypes { get; set; } = null!;
         public virtual DbSet<Monthlyexpense> Monthlyexpenses { get; set; } = null!;
-        public virtual DbSet<Monthlypaymentstatus> Monthlypaymentstatuses { get; set; } = null!;
-        public virtual DbSet<Recurringintervaltype> Recurringintervaltypes { get; set; } = null!;
         public virtual DbSet<User> Users { get; set; } = null!;
-        public virtual DbSet<Userstatus> Userstatuses { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseNpgsql("Host=localhost;Database=ExpenseManager;Username=postgres;Password=S@1988M");
+                optionsBuilder.UseNpgsql("Server=localhost;Database=ExpenseManager;Username=postgres;Password=S@1990t");
             }
         }
 
@@ -65,6 +61,8 @@ namespace Expenses.DAL.Models
 
                 entity.Property(e => e.Isdeleted).HasColumnName("isdeleted");
 
+                entity.Property(e => e.Issplittedpayment).HasColumnName("issplittedpayment");
+
                 entity.Property(e => e.Modifieddate).HasColumnName("modifieddate");
 
                 entity.Property(e => e.Monthlyexpenseid).HasColumnName("monthlyexpenseid");
@@ -86,19 +84,6 @@ namespace Expenses.DAL.Models
                     .HasForeignKey(d => d.Monthlyexpenseid)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_expenseentry_monthlyexpid_monthlyexpense_id");
-            });
-
-            modelBuilder.Entity<Expensepaymentstatus>(entity =>
-            {
-                entity.ToTable("expensepaymentstatus");
-
-                entity.Property(e => e.Id)
-                    .HasColumnName("id")
-                    .UseIdentityAlwaysColumn();
-
-                entity.Property(e => e.Description)
-                    .HasMaxLength(100)
-                    .HasColumnName("description");
             });
 
             modelBuilder.Entity<Expensetype>(entity =>
@@ -193,32 +178,6 @@ namespace Expenses.DAL.Models
                     .HasConstraintName("fk_monthlyexpense_userid_users_id");
             });
 
-            modelBuilder.Entity<Monthlypaymentstatus>(entity =>
-            {
-                entity.ToTable("monthlypaymentstatus");
-
-                entity.Property(e => e.Id)
-                    .HasColumnName("id")
-                    .UseIdentityAlwaysColumn();
-
-                entity.Property(e => e.Description)
-                    .HasMaxLength(100)
-                    .HasColumnName("description");
-            });
-
-            modelBuilder.Entity<Recurringintervaltype>(entity =>
-            {
-                entity.ToTable("recurringintervaltype");
-
-                entity.Property(e => e.Id)
-                    .HasColumnName("id")
-                    .UseIdentityAlwaysColumn();
-
-                entity.Property(e => e.Description)
-                    .HasMaxLength(100)
-                    .HasColumnName("description");
-            });
-
             modelBuilder.Entity<User>(entity =>
             {
                 entity.ToTable("users");
@@ -273,19 +232,6 @@ namespace Expenses.DAL.Models
                     .HasColumnName("username");
 
                 entity.Property(e => e.Userstatusid).HasColumnName("userstatusid");
-            });
-
-            modelBuilder.Entity<Userstatus>(entity =>
-            {
-                entity.ToTable("userstatus");
-
-                entity.Property(e => e.Id)
-                    .HasColumnName("id")
-                    .UseIdentityAlwaysColumn();
-
-                entity.Property(e => e.Description)
-                    .HasMaxLength(100)
-                    .HasColumnName("description");
             });
 
             OnModelCreatingPartial(modelBuilder);

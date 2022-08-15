@@ -13,6 +13,7 @@
             <a *ngIf="!userLoggedIn" class="nav-item nav-link" routerLinkActive="active" [routerLink]=" ['/signin'] ">Signin</a>
             <a *ngIf="!userLoggedIn" class="nav-item nav-link" routerLinkActive="active" [routerLink]=" ['/signup'] ">Signup</a>
             <a class="nav-item nav-link" [routerLink]=" ['/expensetypeconfig'] " >Manage Expense Types</a>
+            <a class="nav-item nav-link" [routerLink]=" ['/expenseentry'] " >Expense Entry</a>
             <a class="nav-item nav-link" (click)="handleSignOut()" >Logout</a>
         </div>
     </div>

@@ -39,6 +39,8 @@ import {
 
 //Icons
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ExpenseentryComponent } from './pages/expenseentry/expenseentry.component';
+import { DatePipe } from '@angular/common';
 
 export function tokenGetter() {
   return localStorage.getItem("jwt");
@@ -55,7 +57,8 @@ export function tokenGetter() {
     PagenotfoundComponent,
     ExpensesummarylistComponent,
     MonthlyexpenseentrieslistComponent,
-    ExpensetypeconfigComponent
+    ExpensetypeconfigComponent,
+    ExpenseentryComponent
   ],
   imports: [
     BrowserModule,
@@ -106,7 +109,8 @@ export function tokenGetter() {
       useClass: AuthInterceptor,
       multi: true
     },
-    AuthGuard
+    AuthGuard,
+    DatePipe
   ],
   bootstrap: [AppComponent]
 })

@@ -19,6 +19,7 @@ namespace Expenses.Domain.Model.Models
         
         public decimal Dueamount { get; set; }
         public decimal Paymentamount { get; set; }
+        public bool Issplittedpayment { get; set; }
         public DateTime? Paymentdate { get; set; }
         public int Expensepaymentstatusid { get; set; }
         public string? Additionalremarks { get; set; }

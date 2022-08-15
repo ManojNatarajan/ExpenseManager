@@ -11,6 +11,7 @@ namespace Expenses.DAL.Models
         public DateOnly Duedate { get; set; }
         public decimal Dueamount { get; set; }
         public decimal Paymentamount { get; set; }
+        public bool Issplittedpayment { get; set; }
         public DateTime? Paymentdate { get; set; }
         public int Expensepaymentstatusid { get; set; }
         public string? Additionalremarks { get; set; }
