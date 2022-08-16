@@ -58,8 +58,8 @@ namespace Expenses.Domain.Repo.Repository
             DomainResponse<ExpenseTypeDTO> response = new DomainResponse<ExpenseTypeDTO>();
             try
             {
-                Expression<Func<Expensetype, bool>> isUserExist = u => u.Userid == userId.Value && u.Description == description;
-                response.Value = base.Find(isUserExist)?.Value?.FirstOrDefault();
+                Expression<Func<Expensetype, bool>> isExpenseTypeExist = u => u.Userid == userId.Value && StringComparer.CurrentCultureIgnoreCase.Equals(u.Description ,description);
+                response.Value = base.Find(isExpenseTypeExist)?.Value?.FirstOrDefault();
                 if (response.Value != null)
                     response.AddErrorDescription(1, "Expense type already exist!");
             }

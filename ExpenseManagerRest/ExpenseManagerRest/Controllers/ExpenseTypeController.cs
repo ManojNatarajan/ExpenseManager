@@ -63,7 +63,7 @@ namespace ExpenseManagerRest.Controllers
         [Route("Add")]
         public IActionResult AddExpenseType(ExpenseTypeDTO expenseType)
         {
-            //To Do: Duplicate Expense Type validation to be added 
+            //Duplicate Expense Type validation  
             DomainResponse<ExpenseTypeDTO> response = _expenseTypeRepo.CheckExpenseTypeExists(expenseType?.UserId, expenseType?.Description);
             if (response.ErrorDetails != null && response.ErrorDetails.Count > 0)
             {
