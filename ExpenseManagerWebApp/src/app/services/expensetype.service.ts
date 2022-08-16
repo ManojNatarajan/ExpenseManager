@@ -31,14 +31,14 @@ export class ExpensetypeService {
     .pipe(map((data: any[]) => data.map(item => new ExpenseType(item))));
   }
 
-  addExpense(e:ExpenseType){
+  addExpenseType(e:ExpenseType){
     let addExpenseUrl = this.url + '/add';
     let requestBody = JSON.parse(JSON.stringify(e));
     this.logger.debug(`addExpenseTypeUrl: ${addExpenseUrl}`);
     return this.http.post(addExpenseUrl, requestBody, { responseType: 'text' });
   }
 
-  updateExpense(e:ExpenseType){
+  updateExpenseType(e:ExpenseType){
     let updateExpenseUrl = this.url + '/update';
     let requestBody = JSON.parse(JSON.stringify(e));
     this.logger.debug(`updateExpenseTypeUrl: ${updateExpenseUrl}`);

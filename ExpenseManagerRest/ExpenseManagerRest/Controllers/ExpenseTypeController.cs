@@ -63,19 +63,29 @@ namespace ExpenseManagerRest.Controllers
         [Route("Add")]
         public IActionResult AddExpenseType(ExpenseTypeDTO expenseType)
         {
-            //To Do: Duplicate Expense Type validation to be added 
+            //Duplicate Expense Type validation  
+            DomainResponse<ExpenseTypeDTO> response = _expenseTypeRepo.CheckExpenseTypeExists(expenseType?.UserId, expenseType?.Description);
+            if (response.ErrorDetails != null && response.ErrorDetails.Count > 0)
+            {
+                bool? userExist = response?.ErrorDetails?.Any(x => x.Number == 1);
+                if (userExist.Value)
+                    return Conflict("Expense type already exist.");
+                else
+                    return BadRequest(response.ErrorSummary);
+            }
 
-            DomainResponse<long> response = _expenseTypeRepo.AddEntity(expenseType);
-            if (response.IsSuccess)
-                return Ok(response.Value);
+            DomainResponse<long> responseExpenseType = _expenseTypeRepo.AddEntity(expenseType);
+            if (responseExpenseType.IsSuccess)
+                return Ok(responseExpenseType.Value);
             else
-                return BadRequest(response.ErrorSummary);
+                return BadRequest(responseExpenseType.ErrorSummary);
         }
 
         [HttpPut]
         [Route("update")]
         public IActionResult Update(ExpenseTypeDTO expenseType)
         {
+
             DomainResponse<long> response = _expenseTypeRepo.UpdateEntity(expenseType);
             if (response.IsSuccess)
                 return Ok(response.Value);
