@@ -11,6 +11,7 @@ namespace Expenses.Domain.Repo.Repository
     {
         DomainResponse<UserDTO> AuthenticateUserByMobileAndPassword(long mobile, string password);
         DomainResponse<UserDTO> AuthenticateUserBySocialUserId(string socialUserId);
+        DomainResponse<UserDTO> CheckUserExits(string email, long mobile);
     }
 
     public class UserDomainRepository : DomainRepositoryBase<UserDTO, User>, IUserDomainRepository
@@ -24,6 +25,23 @@ namespace Expenses.Domain.Repo.Repository
             _unitOfWork = unitOfWork;
             _mapper = mapper;
             _logger = logger;
+        }
+        public DomainResponse<UserDTO> CheckUserExits(string email, long mobile)
+        {
+            DomainResponse<UserDTO> response = new DomainResponse<UserDTO>();
+            try
+            {
+                Expression<Func<User, bool>> isUserExist = u => u.Email == email && u.Mobile == mobile && string.IsNullOrEmpty(u.Socialuserid);
+                response.Value = base.Find(isUserExist)?.Value?.FirstOrDefault();
+                if (response.Value != null)
+                    response.AddErrorDescription(1, "User already exist!");
+            }
+            catch (Exception e)
+            {
+                _logger.LogError($"Exception in validate user. {e}");
+                response.AddErrorDescription(-1, "Exception in CheckUserExits.", $"Exception information: {e}");
+            }
+            return response;
         }
 
         public DomainResponse<UserDTO> AuthenticateUserByMobileAndPassword(long mobile, string password)
