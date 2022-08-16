@@ -6,6 +6,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 import { LoggerService } from 'src/app/common/logger.service';
 import { AlertService } from 'src/app/common/alert.service';
 import { SocialLoginHandler } from 'src/app/common/Social-login-handler';
+import { LoginService } from 'src/app/services/loginService.service';
 
 @Component({
   selector: 'app-header',
@@ -22,9 +23,10 @@ export class HeaderComponent implements OnInit {
     private localStore: LocalService,
     private jwtHelper: JwtHelperService,
     private logger: LoggerService,
-    private socialHandler: SocialLoginHandler
+    private socialHandler: SocialLoginHandler,
+    protected loginService: LoginService
   ) { 
-      this.userLoggedIn = this.isUserLoggedIn();
+      this.loginService.userLoggedIn =this.loginService.userLoggedIn || this.isUserLoggedIn();
   }
 
   ngOnInit(): void {

@@ -7,6 +7,7 @@ import { LocalService } from 'src/app/common/local.service';
 import { LoggerService } from 'src/app/common/logger.service';
 import { ExpensemanagerauthService } from '../services/expensemanagerauth.service';
 import { Router } from '@angular/router';
+import { LoginService } from '../services/loginService.service';
 
 @Injectable({
   providedIn: 'root'
@@ -24,7 +25,8 @@ export class SocialLoginHandler{
         private logger: LoggerService,
         private alert: AlertService,
         private auth: ExpensemanagerauthService,
-        private router: Router
+        private router: Router,
+        private loginService: LoginService
         ){}
 
     
@@ -44,6 +46,7 @@ export class SocialLoginHandler{
               socialUser.authToken = this.user.idToken ? this.user.idToken : this.user.authToken;
               this.auth.SignInUsingSocialUser(socialUser).subscribe({
                 next: (accessTokenRes) => {
+                  this.loginService.userLoggedIn = true;
                   this.logger.debug(`JWT Token: ${accessTokenRes}`);
                   this.localStore.saveData('jwt', accessTokenRes);
                   this.router.navigateByUrl('/');
